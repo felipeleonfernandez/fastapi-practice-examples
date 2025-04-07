@@ -1,0 +1,23 @@
+{
+  "name": "FastAPI Multi-App Dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "devuser",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-azuretools.vscode-docker"
+  ],
+  "postCreateCommand": "pip install -r main_examples/requirements.txt -r todo/requirements.txt",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "FastAPI App",
+      "onAutoForward": "openPreview"
+    }
+  }
+}
